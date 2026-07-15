@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-demo
+  namespace: argocd
+  annotations:
+    argo.octopus.com/project.argo-demo-source: "argo-cd-rollback-sample"
+    argo.octopus.com/environment.argo-demo-source: "development"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/creid-octopus/argocd-octopus-demo.git
+    targetRevision: HEAD
+    path: manifests
+    name: argo-demo-source
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
