@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-demo
+  name: argo-demo-test
   namespace: argocd
   annotations:
     argo.octopus.com/project.argo-demo-source: "argo-cd-rollback-sample"
