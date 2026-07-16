@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello
+  name: hello-production
   labels:
-    app: hello
+    app: hello-production
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: hello
+      app: hello-production
   template:
     metadata:
       labels:
-        app: hello
+        app: hello-production
     spec:
       containers:
         - name: hello
@@ -27,11 +27,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello
+  name: hello-production
 spec:
   type: ClusterIP
   selector:
-    app: hello
+    app: hello-production
   ports:
     - port: 80
       targetPort: 80

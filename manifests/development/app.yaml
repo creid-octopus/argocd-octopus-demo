@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-development
+  labels:
+    app: hello-development
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-development
+  template:
+    metadata:
+      labels:
+        app: hello-development
+    spec:
+      containers:
+        - name: hello
+          image: nginxdemos/hello:0.4
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-development
+spec:
+  type: ClusterIP
+  selector:
+    app: hello-development
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
