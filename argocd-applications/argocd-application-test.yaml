@@ -4,7 +4,7 @@ metadata:
   name: argo-demo-test
   namespace: argocd
   annotations:
-    argo.octopus.com/project.argo-demo-source: "argo-cd-rollback-sample"
+    argo.octopus.com/project.argo-demo-source: "argo-cd-demo-application"
     argo.octopus.com/environment.argo-demo-source: "test"
 spec:
   project: default
