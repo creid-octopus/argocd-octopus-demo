@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/creid-octopus/argocd-octopus-demo.git
     targetRevision: HEAD
-    path: manifests
+    path: manifests/test
     name: argo-demo-source
   destination:
     server: https://kubernetes.default.svc
